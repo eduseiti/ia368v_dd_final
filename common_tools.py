@@ -21,6 +21,7 @@ API_PRICING={
 }
 
 API_KEYS_FILE="../api_keys_20230324.json"
+API_KEYS_FILE_2="../api_keys_20230612.json"
 
 SYSTEM_ROLE = {
     'role': "system", 
@@ -32,7 +33,7 @@ FEW_SHOT_EXAMPLES=[
     [
         {
             'role': "user",
-            'content': "Passagem: \"O cirurgião faz uma incisão no quadril, remove a articulação do quadril danificada e a substitui por uma articulação artificial que é uma liga metálica ou, em alguns casos, cerâmica. A cirurgia geralmente leva cerca de 60 a 90 minutos para ser concluída.\"\nPergunta: de que metal são feitas as próteses de quadril?\"", 
+            'content': "Passagem: \"O cirurgião faz uma incisão no quadril, remove a articulação do quadril danificada e a substitui por uma articulação artificial que é uma liga metálica ou, em alguns casos, cerâmica. A cirurgia geralmente leva cerca de 60 a 90 minutos para ser concluída.\"\nPergunta: \"de que metal são feitas as próteses de quadril?\"", 
         },
         {  
             'role': "assistant",
@@ -113,11 +114,17 @@ MAX_TOKENS_RESPONSE=500
 
 
 
-def initialize_openai():
-    with open(API_KEYS_FILE) as inputFile:
+def initialize_openai(which_key="OPENAI_API_KEY"):
+
+    if which_key == "OPENAI_API_KEY_2":
+        api_keys_filename = API_KEYS_FILE_2
+    else:
+        api_keys_filename = API_KEYS_FILE
+
+    with open(api_keys_filename) as inputFile:
         api_keys = json.load(inputFile)
 
-    openai.api_key = api_keys['OPENAI_API_KEY']
+    openai.api_key = api_keys[which_key]
 
 
 
@@ -135,7 +142,7 @@ def execute_LLM_passage_relevance_evaluation(which_query,
         print(query_passage_to_evaluate)
         print("++++++++++++++++++++++++++")
 
-    if model == MODEL_GPT3:
+    if model in [MODEL_GPT3, MODEL_GPT4]:
         messages_to_send = [SYSTEM_ROLE]
 
         for i, example in enumerate(FEW_SHOT_EXAMPLES):
