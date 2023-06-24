@@ -338,7 +338,7 @@ def execute_LLM_query_creation(which_passage,
 
     m = re.match(CREATION_OPENAI_RESPONSE_REGEX, response_text)
 
-    if len(m.groups()) == 2:
+    if (m is not None) and (len(m.groups()) == 2):
         question_theme = m.group(1)
         question_specific = m.group(2)
     else:
