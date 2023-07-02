@@ -11,3 +11,5 @@ UNICAMP-IR dataset creation, for passage retrieval evaluation in pt-BR, based on
 * [colbertx_fine_tune_48_000.ipynb](searching_BM25_MT5.ipynb): Performs the ColBERT-X base model fine-tuning, using the first 1M triplets of the [mMARCO-pt dataset](https://huggingface.co/datasets/unicamp-dl/mmarco).
 * [split_clueweb22_pt_10M.ipynb](split_clueweb22_pt_10M.ipynb): Split the pre-processed Clueweb22-pt dataset in 2M-passage chunks, converting each one of them to the ColBERT-X input format. This is required to keep the ColBERT-X index creation at reasonable memory budgets.
 * [create_clueweb22_pt_colbertx_index.ipynb](create_clueweb22_pt_colbertx_index.ipynb): Create the ColBERT-X indexes (including the approximate search using FAISS) over a given chunk of the Clueweb22-pt dataset.
+* [test_colbertx_part_00_index.ipynb](test_colbertx_part_00_index.ipynb): [Validation queries](queries_validation.tsv) retrieval using ColBERT-X index over the first Clueweb22-pt part.
+* [colbertx_train_retrieval.ipynb](colbertx_train_retrieval.ipynb): 
