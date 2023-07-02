@@ -4,6 +4,11 @@ UNICAMP-IR dataset creation, for passage retrieval evaluation in pt-BR, based on
 
 ![UNICAMP-IR semi-automatic creation pipeline](Pipeline%20UNICAMP-IR.png)
 
+<br/>
+
+Check [the final report](UNICAMP_IR_final_report_20230702.pdf) for details on the work execution.
+
+
 ## Notebooks and source code description
 
 ### Retrieval pipelines work
