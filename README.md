@@ -12,4 +12,6 @@ UNICAMP-IR dataset creation, for passage retrieval evaluation in pt-BR, based on
 * [split_clueweb22_pt_10M.ipynb](split_clueweb22_pt_10M.ipynb): Split the pre-processed Clueweb22-pt dataset in 2M-passage chunks, converting each one of them to the ColBERT-X input format. This is required to keep the ColBERT-X index creation at reasonable memory budgets.
 * [create_clueweb22_pt_colbertx_index.ipynb](create_clueweb22_pt_colbertx_index.ipynb): Create the ColBERT-X indexes (including the approximate search using FAISS) over a given chunk of the Clueweb22-pt dataset.
 * [test_colbertx_part_00_index.ipynb](test_colbertx_part_00_index.ipynb): [Validation queries](queries_validation.tsv) retrieval using ColBERT-X index over the first Clueweb22-pt part.
-* [colbertx_train_retrieval.ipynb](colbertx_train_retrieval.ipynb): 
+* [colbertx_train_retrieval.ipynb](colbertx_train_retrieval.ipynb): [Train queries](train_queries.tsv) retrieval using ColBERT-X over all the Clueweb22-pt parts.
+* [handle_colbertx_validation_retrievals.ipynb](handle_colbertx_validation_retrievals.ipynb): merge the ColBERT-X validation queries retrieval performed over the Clueweb22-pt corpus parts.
+* [handle_colbertx_train_retrievals.ipynb](handle_colbertx_train_retrievals.ipynb): merge the ColBERT-X train queries retrieval performed over the Clueweb22-pt corpus parts.
